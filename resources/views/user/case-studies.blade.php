@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-screen md:w-3xl lg:w-4xl xl:w-5xl h-fit items-center px-6 py-12 lg:px-0 md:py-12">
             <div class="flex items-center h-fit col-span-9">
                 <div class="justifty-center text-center md:text-start w-full">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">Slogan lorem ipsum dolor sit amet, tellus elit mattis.</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">Explore how we've helped businesses achieve their goals</h1>
                 </div>
             </div>
             
@@ -23,48 +23,30 @@
     <section class="flex justify-center bg-gray-50 px-6 lg:px-0 py-12">
         <div class="w-screen md:w-3xl lg:w-4xl xl:w-5xl">
             <h2 class="text-3xl text-start font-bold text-blue-950 mb-6">Case studies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full h-fit items-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
                 {{-- Card --}}
-                <div class="flex flex-col relative text-center  w-full justify-center">
+                <div class="h-full flex flex-col relative text-center  w-full justify-center">
                     <img class="z-10 mx-auto translate-y-6 w-4/5 aspect-video md:aspect-[4/3] object-cover bg-gray-100 rounded-2xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    <div class="p-6 pt-12 flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
-                        <h3 class="text-center text-lg font-bold text-blue-950">Learning, Consulting, and Coaching</h3>
+                    <div class="p-6 pt-12 grow flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
+                        <h3 class="text-center text-lg font-bold text-blue-950">Banking, Financial and Insurance Service Industry (BFI)</h3>
                         <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
                     </div>
                 </div>
 
                 {{-- Card --}}
-                <div class="flex flex-col relative text-center  w-full justify-center">
+                <div class="h-full flex flex-col relative text-center  w-full justify-center">
                     <img class="z-10 mx-auto translate-y-6 w-4/5 aspect-video md:aspect-[4/3] object-cover bg-gray-100 rounded-2xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    <div class="p-6 pt-12 flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
-                        <h3 class="text-center text-lg font-bold text-blue-950">Learning, Consulting, and Coaching</h3>
+                    <div class="p-6 pt-12 grow flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
+                        <h3 class="text-center text-lg font-bold text-blue-950"> Healthcare, Property, Consumer (HPC)</h3>
                         <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
                     </div>
                 </div>
 
                 {{-- Card --}}
-                <div class="flex flex-col relative text-center  w-full justify-center">
+                <div class="h-full flex flex-col relative text-center  w-full justify-center">
                     <img class="z-10 mx-auto translate-y-6 w-4/5 aspect-video md:aspect-[4/3] object-cover bg-gray-100 rounded-2xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    <div class="p-6 pt-12 flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
-                        <h3 class="text-center text-lg font-bold text-blue-950">Learning, Consulting, and Coaching</h3>
-                        <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
-                    </div>
-                </div>
-
-                {{-- Card --}}
-                <div class="flex flex-col relative text-center  w-full justify-center">
-                    <img class="z-10 mx-auto translate-y-6 w-4/5 aspect-video md:aspect-[4/3] object-cover bg-gray-100 rounded-2xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    <div class="p-6 pt-12 flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
-                        <h3 class="text-center text-lg font-bold text-blue-950">Learning, Consulting, and Coaching</h3>
-                        <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
-                    </div>
-                </div>
-
-                {{-- Card --}}
-                <div class="flex flex-col relative text-center  w-full justify-center">
-                    <img class="z-10 mx-auto translate-y-6 w-4/5 aspect-video md:aspect-[4/3] object-cover bg-gray-100 rounded-2xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    <div class="p-6 pt-12 flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
-                        <h3 class="text-center text-lg font-bold text-blue-950">Learning, Consulting, and Coaching</h3>
+                    <div class="p-6 pt-12 grow flex flex-col gap-2 bg-white rounded-2xl drop-shadow-md">
+                        <h3 class="text-center text-lg font-bold text-blue-950">Automotive, Transportation, Logistics (ATL)</h3>
                         <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
                     </div>
                 </div>
@@ -75,10 +57,10 @@
     {{-- CTA --}}
     <section class="flex-col justify-center bg-white px-6 lg:px-0 py-12">
         <div class="mx-auto w-full justify-center text-center gap-2">
-            <h2 class="text-center text-3xl font-bold text-blue-950 mb-6">Like what you learn?</h2>
+            <h2 class="text-center text-3xl font-bold text-blue-950 mb-6">Curious about our impact?</h2>
             <a href="/contact">
                 <button class="inline-block bg-amber-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded">
-                    Learn more
+                    Contact us
                 </button>
             </a>
         </div>

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('user.landing.index');
+Route::post('/meeting-request', [LandingController::class, 'storeMeetingRequest'])->name('user.landing.store-meeting-request');
+
 Route::get('/who', [LandingController::class, 'who'])->name('user.landing.who');
 Route::get('/what', [LandingController::class, 'what'])->name('user.landing.what');
 Route::get('/case-studies', [LandingController::class, 'caseStudies'])->name('user.landing.case-studies');

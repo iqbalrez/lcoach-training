@@ -1,6 +1,6 @@
 <div class="flex items-center justify-center">
-    <div class="calendar-container shadow-lg w-full">
-        <div class="md:p-8 p-5 bg-white rounded-t w-full">
+    <div class="calendar-container shadow-lg w-full overflow-x-hidden relative">
+        <div id="calendar" class="absolute translate-x-0 transition-transform ease-in-out delay-150 duration-300 md:p-8 p-5 bg-white rounded-t w-full h-full">
             <div class="flex items-center justify-between">
                 <span id="month-year" class="text-base font-bold text-gray-800"></span>
                 <div class="flex items-center">
@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="flex items-center justify-between pt-4 w-full">
-                <table class="w-full">
+                <table class="w-full h-fit">
                     <thead>
                         <tr>
                             <th>Mo</th>
@@ -36,6 +36,43 @@
                     </tbody>
                 </table>
             </div>
+        </div>
+        
+        <div id="meetingRequestForm" class="translate-x-full transition-transform ease-in-out delay-150 duration-300 md:p-8 p-5 bg-white rounded-t w-full">
+            <div class="flex gap-2 pb-2">
+                <button id="form-back" aria-label="form-back" class=" hover:text-gray-400 text-gray-800">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <polyline points="15 6 9 12 15 18" />
+                    </svg>
+                </button>
+                <h2 class="text-base font-bold text-gray-800">Meeting Request</h2>
+            </div>
+            <form action="#" method="POST">
+                <div class="flex gap-2">
+                    <div class="mb-4 flex-grow">
+                        <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+                        <input type="date" id="date" name="date" readonly class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                    <div class="mb-4 flex-shrink">
+                        <label for="time" class="block text-sm font-medium text-gray-700">Time</label>
+                        <input type="time" id="time" name="time" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                </div>
+                <div class="mb-4">
+                    <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
+                    <input id="company" name="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></input>
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -82,6 +119,14 @@
 
                     cellText.appendChild(day);
                     cell.appendChild(cellText);
+                    cell.addEventListener("click", () => {
+                        document.querySelector("#meetingRequestForm").classList.remove("translate-x-full");
+                        document.querySelector("#meetingRequestForm").classList.add("translate-x-0");
+                        document.querySelector("#calendar").classList.remove("translate-x-0");
+                        document.querySelector("#calendar").classList.add("-translate-x-full");
+                        document.querySelector("#date").value = `${year}-${String(month + 1).padStart(2, '0')}-${String(day.textContent).padStart(2, '0')}`;
+                        console.log(document.querySelector("#date").value);
+                    });
                     date++;
                 }
 
@@ -99,6 +144,25 @@
 
         generateCalendar(currentYear, currentMonth);
 
+        const form = document.querySelector("#meetingRequestForm");
+        const calendar = document.querySelector("#calendar");
+        const dateInput = document.querySelector("#date");
+
+        document.querySelectorAll("#calendar-body td div").forEach(cell => {
+            cell.addEventListener("click", () => {
+                const selectedDate = cell.textContent.trim();
+                const monthYear = document.querySelector("#month-year").textContent;
+                dateInput.value = `${selectedDate} ${monthYear}`;
+            });
+        });
+
+        document.querySelector("#form-back").addEventListener("click", () => {
+            form.classList.remove("translate-x-0");
+            form.classList.add("translate-x-full");
+            calendar.classList.remove("-translate-x-full");
+            calendar.classList.add("translate-x-0");
+        });
+        
         document.querySelector("#prev-month").addEventListener("click", () => {
             currentMonth--;
             if (currentMonth < 0) {

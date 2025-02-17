@@ -15,12 +15,13 @@
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Follow us</p>
-            <x-nav-link class="border-transparent" href="/">WhatsApp</x-nav-link>
+            <x-nav-link class="border-transparent" href="/">LinkedIn</x-nav-link>
             <x-nav-link class="border-transparent" href="/about">Facebook</x-nav-link>
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Contact us</p>
-            <x-nav-link class="border-transparent" href="/">lcoach@mail.com</x-nav-link>
+            <x-nav-link class="border-transparent" href="/">+62 817 9909 998</x-nav-link>
+            <x-nav-link class="border-transparent" href="/">lincolnciptasolusi@gmail.com</x-nav-link>
         </div>
     </div> 
 </nav>

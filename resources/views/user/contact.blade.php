@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-screen md:w-3xl lg:w-4xl xl:w-5xl h-fit items-center px-6 py-12 xl:px-0 md:py-12">
             <div class="flex items-center h-fit col-span-9">
                 <div class="justifty-center text-center md:text-start w-full">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">Slogan lorem ipsum dolor sit amet, tellus elit mattis.</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24"> We're here to answer your business needs.</h1>
                 </div>
             </div>
             
@@ -20,7 +20,7 @@
             <h2 class="text-3xl font-bold text-blue-950">Connect with us</h2>
             <div class="grid md:grid-cols-2 gap-6 w-full h-fit pt-3 md:pt-6">
                 <div class="flex w-full items-start">
-                    <p class="text-gray-800 leading-relaxed">Lorem ipsum dolor sit amet consectetur. Fusce nisl nunc pulvinar pulvinar nam. Enim scelerisque ut risus pulvinar suspendisse interdum eget eget volutpat.</p>
+                    <p class="text-gray-800 leading-relaxed">Feel free to reach out to us for personalized assistance, inquiries about our services, or collaboration opportunities. Our team is here to provide the support and information you need to achieve your goals.</p>
                 </div>
 
                 <x-calendar></x-calendar>
