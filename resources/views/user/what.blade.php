@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-screen md:w-3xl lg:w-4xl xl:w-5xl h-fit items-center px-6 py-12 md:px-0 md:py-12">
             <div class="flex items-center h-fit col-span-9">
                 <div class="justifty-center text-center md:text-start w-full">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">We believe in empowering businesses and individuals to reach their full potential.</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">{{ $webConfig->hero_what_copywriting}}</h1>
                 </div>
             </div>
             

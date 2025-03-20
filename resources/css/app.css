@@ -6,3 +6,36 @@
 @theme {
     --font-primary: "Inter", sans;
 }
+
+input[type=file]::file-selector-button {
+    color: white;
+    @apply bg-blue-950 hover:bg-gray-500 p-2 mr-2;
+}
+
+#DataTables_Table_0_length>label>select {
+    @apply text-sm;
+    width: 53px;
+    margin: 0 5px;
+}
+
+.ck-editor__main {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#DataTables_Table_0_wrapper>div.top {
+    @apply flex justify-between items-center px-2 bg-gray-200 p-2
+}
+
+#DataTables_Table_0_wrapper>div.top>div.top-right {
+    @apply flex flex-row gap-2 items-center
+}
+
+#DataTables_Table_0_wrapper>div.top>div.top-right>div.dt-buttons>button.dt-button.buttons-excel.buttons-html5 {
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    line-height: 1.5rem;
+    padding: 5px;
+    background-color: transparent;
+    color: inherit;
+}

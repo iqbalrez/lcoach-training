@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen md:max-w-5xl h-fit items-center px-6 py-12 lg:px-0 md:py-24">
             <div class="flex items-center h-fit md:col-span-7">
                 <div class="justifty-center text-center md:text-start w-full">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">Business partner that’s fit for all business sizes.</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">{{ $webConfig->hero_landing_copywriting }}</h1>
                     <a href="#partner" class="mt-8 inline-block bg-amber-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded">Learn more</a>
                 </div>
             </div>
@@ -66,7 +66,7 @@
         <div class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 w-5xl h-fit items-center py-6">
             <div class="flex items-center h-fit md:col-span-5">
                 <div class="text-start">
-                    <p class="text-sm text-blue-950 pr-24">Collaborating with trusted partners to drive mutual growth and success.</p>
+                    <p class="text-sm text-blue-950 pr-24">{{ $webConfig->partner_copywriting }}</p>
                 </div>
             </div>
             
@@ -148,18 +148,18 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-12 gap-6 w-full h-fit items-center">
                 <div class="md:col-span-6 flex items-center h-full md:pr-24">
-                    <p class="text-gray-800 leading-relaxed">LCoach is a division under PT. Lincoln Cipta Solusi, specializing in skill development through an innovative blend of Coaching, Learning, and Consulting designs, focusing on marketing, business, and entrepreneurship.
+                    <p class="text-gray-800 leading-relaxed">{{ $webConfig->about_landing_copywriting }}
                     </p>
                 </div>
                 <div class="md:col-span-6 h-fit order-last">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex flex-col gap-4 pt-24">
-                            <img class="w-full aspect-[4/3] object-cover opacity-50 rounded-xl bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                            <img class="w-full aspect-[4/3] object-cover opacity-50 rounded-xl bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_1)  }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_2)  }}" alt="Image of a person working on a laptop">
                         </div>
                         <div class="flex flex-col gap-4">
-                            <img class="w-full aspect-[4/3] object-cover opacity-50 rounded-xl bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                            <img class="w-full aspect-[4/3] object-cover opacity-50 rounded-xl bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_3)  }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_4)  }}" alt="Image of a person working on a laptop">
                         </div>
                     </div>
                 </div>
@@ -174,13 +174,13 @@
     {{-- Video --}}
     <section class="relative flex items-center w-full h-fit bg-white">
         <div class="relative items-center w-full px-6 mx-auto md:px-12 lg:px-0 max-w-2xl py-6">
-            {{-- @php
-                parse_str(parse_url($profile->video_link, PHP_URL_QUERY), $vars);
+            @php
+                parse_str(parse_url($webConfig->video_landing_link, PHP_URL_QUERY), $vars);
                 $videoId = $vars['v'];
-            @endphp --}}
+            @endphp
 
             <iframe class="w-full aspect-video max-w-full border border-gray-200 rounded-2xl"
-                src="https://www.youtube-nocookie.com/embed/UXf9K9UeW4Y?si=m3F734jv-TFQY78o""
+                src="https://www.youtube-nocookie.com/embed/{{ $videoId }}?modestbranding=1"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
@@ -232,7 +232,7 @@
             <h2 class="text-3xl font-bold text-blue-950">Connect with us</h2>
             <div class="grid md:grid-cols-2 gap-6 w-full h-fit pt-3 md:pt-6">
                 <div class="flex w-full items-start">
-                    <p class="text-gray-800 leading-relaxed">Feel free to reach out to us for personalized assistance, inquiries about our services, or collaboration opportunities. Our team is here to provide the support and information you need to achieve your goals.</p>
+                    <p class="text-gray-800 leading-relaxed">{{ $webConfig->contact_copywriting }}</p>
                 </div>
 
                 <x-calendar></x-calendar>
@@ -276,4 +276,26 @@
         }
 
         cycle()
+
+        @if (Session::has('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Success',
+                    text: '{{ Session::get('success') }}',
+                    showConfirmButton: false,
+                    timer: 1500
+                }).then(() => {
+                    $('.rowTable').DataTable().ajax.reload();
+                });
+            @endif
+
+            @if (Session::has('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Failed',
+                    text: '{{ Session::get('error') }}',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            @endif
 </script>

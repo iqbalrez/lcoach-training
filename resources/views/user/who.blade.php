@@ -4,7 +4,7 @@
         <div class="grid grid-cols-1 gap-6 max-w-screen md:max-w-6xl h-fit items-center px-6 pt-12 md:px-0">
             <div class="flex items-center h-fit">
                 <div class="justifty-center text-center w-full">
-                    <h1 class="text-2xl md:text-4xl font-bold text-gray-800">We bring years of experience and a proven track records.</h1>
+                    <h1 class="text-2xl md:text-4xl font-bold text-gray-800">{{ $webConfig->hero_who_copywriting }}</h1>
                     </div>
             </div>
             
@@ -13,8 +13,10 @@
                     <img class="md:w-3/4 mx-auto aspect-video object-cover rounded-2xl" src="https://plus.unsplash.com/premium_photo-1661284828052-ea25d6ea94cd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a person working on a laptop">
                     
                     <div class="-translate-y-24 mx-auto px-8 pt-6 w-5/6 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3">
-                        <h2 class="text-2xl font-bold text-blue-950">Subheading</h2>
-                        <p class="leading-relaxed">We are a boutique innovation agency founded by active entrepreneurs and startup founders. Our vision at Int Labs is to empower people to imagine, and build innovative solutions for the world. We understand innovation.<p>
+                        <h2 class="text-2xl font-bold text-blue-950">{{ $webConfig->subheading_who }}</h2>
+                        <p class="leading-relaxed">
+                        {!! $webConfig->who_copywriting !!}
+                        <p>
                         <div class="grid md:grid-cols-2 gap-6 md:pt-6">
                             <div class="relative">
                                 <img class="w-full aspect-video object-cover rounded-xl" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">

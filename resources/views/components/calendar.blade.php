@@ -48,7 +48,8 @@
                 </button>
                 <h2 class="text-base font-bold text-gray-800">Meeting Request</h2>
             </div>
-            <form action="#" method="POST">
+            <form action="{{ route('user.meeting-request.store') }}" method="POST">
+                @csrf
                 <div class="flex gap-2">
                     <div class="mb-4 flex-grow">
                         <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
@@ -59,13 +60,9 @@
                         <input type="time" id="time" name="time" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                     </div>
                 </div>
-                <div class="mb-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                </div>
-                <div class="mb-4">
-                    <label for="company" class="block text-sm font-medium text-gray-700">Company</label>
-                    <input id="company" name="company" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></input>
+                <x-input id="name" label="Nama" name="name" required />
+                <x-input id="email" label="Email" name="email" type="email" required />
+                <x-input id="company" label="Asal Perusahaan" name="company" />
                 </div>
                 <div class="flex justify-end">
                     <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">

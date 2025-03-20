@@ -2,7 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\User\LandingController; 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ServicesController;
+use App\Http\Controllers\Admin\PartnerController;
+use App\Http\Controllers\Admin\MeetingRequestController;
+use App\Http\Controllers\Admin\CaseStudiesController;
+use App\Http\Controllers\Admin\StatisticController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,16 +23,54 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [LandingController::class, 'index'])->name('user.landing.index');
-Route::post('/meeting-request', [LandingController::class, 'storeMeetingRequest'])->name('user.landing.store-meeting-request');
+Route::post('/store-meeting-request', [LandingController::class, 'storeMeetingRequest'])->name('user.meeting-request.store');
 
 Route::get('/who', [LandingController::class, 'who'])->name('user.landing.who');
 Route::get('/what', [LandingController::class, 'what'])->name('user.landing.what');
 Route::get('/case-studies', [LandingController::class, 'caseStudies'])->name('user.landing.case-studies');
 Route::get('/contact', [LandingController::class, 'contact'])->name('user.landing.contact');
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard.index');
+    Route::post('/update', [DashboardController::class, 'update'])->name('admin.dashboard.update');
+    
+    Route::group(['prefix' => 'services'], function () {
+        Route::get('/', [ServicesController::class, 'index'])->name('admin.services.index');
+        Route::get('/create', [ServicesController::class, 'create'])->name('admin.services.create');
+        Route::post('/store', [ServicesController::class, 'store'])->name('admin.services.store');
+        Route::get('/edit/{id}', [ServicesController::class, 'edit'])->name('admin.services.edit');
+        Route::post('/update/{id}', [ServicesController::class, 'update'])->name('admin.services.update');
+        Route::delete('/destroy/{id}', [ServicesController::class, 'destroy'])->name('admin.services.destroy');
+    });
+    Route::group(['prefix' => 'partner'], function () {
+        Route::get('/', [PartnerController::class, 'index'])->name('admin.partner.index');    
+        Route::get('/create', [PartnerController::class, 'create'])->name('admin.partner.create');
+        Route::post('/store', [PartnerController::class, 'store'])->name('admin.partner.store');
+        Route::get('/edit/{id}', [PartnerController::class, 'edit'])->name('admin.partner.edit');
+        Route::post('/update/{id}', [PartnerController::class, 'update'])->name('admin.partner.update');
+        Route::delete('/destroy/{id}', [PartnerController::class, 'destroy'])->name('admin.partner.destroy');
+    });
+    Route::group(['prefix' => 'meeting-request'], function () {
+        Route::get('/', [MeetingRequestController::class, 'index'])->name('admin.meeting-request.index');
+        Route::delete('/destroy/{id}', [MeetingRequestController::class, 'destroy'])->name('admin.meeting-request.destroy');
+    });
+    Route::group(['prefix' => 'case-studies'], function () {
+        Route::get('/', [CaseStudiesController::class, 'index'])->name('admin.case-studies.index');
+        Route::get('/create', [CaseStudiesController::class, 'create'])->name('admin.case-studies.create');
+        Route::post('/store', [CaseStudiesController::class, 'store'])->name('admin.case-studies.store');
+        Route::get('/edit/{id}', [CaseStudiesController::class, 'edit'])->name('admin.case-studies.edit');
+        Route::post('/update/{id}', [CaseStudiesController::class, 'update'])->name('admin.case-studies.update');
+        Route::delete('/destroy/{id}', [CaseStudiesController::class, 'destroy'])->name('admin.case-studies.destroy');
+    });
+    Route::group(['prefix' => 'statistic'], function () {
+        Route::get('/', [StatisticController::class, 'index'])->name('admin.statistic.index');
+        Route::get('/create', [StatisticController::class, 'create'])->name('admin.statistic.create');
+        Route::post('/store', [StatisticController::class, 'store'])->name('admin.statistic.store');
+        Route::get('/edit/{id}', [StatisticController::class, 'edit'])->name('admin.statistic.edit');
+        Route::post('/update/{id}', [StatisticController::class, 'update'])->name('admin.statistic.update');
+        Route::delete('/destroy/{id}', [StatisticController::class, 'destroy'])->name('admin.statistic.destroy');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
