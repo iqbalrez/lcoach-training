@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 items-center flex">
-            {{ __('Stats') }}
-            <a href="{{ route('admin.statistic.create') }}"
+            {{ __('Social Media') }}
+            <a href="{{ route('admin.social-media.create') }}"
             class="ml-2 text-white bg-blue-950 items-center px-4 rounded-full hover:bg-gray-700">
             +
             </a> 
@@ -17,9 +17,10 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Judul</th>
-                                <th>Value</th>
-                                <th>Ikon</th>
+                                <th>App</th>
+                                <th>Name</th>
+                                <th>Link</th>
+                                <th>Icon</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,7 +44,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "{{ route('admin.statistic.destroy', ':id') }}".replace(':id', id),
+                        url: "{{ route('admin.social-media.destroy', ':id') }}".replace(':id', id),
                         type: 'DELETE',
                         data: {
                             '_token': "{{ csrf_token() }}"
@@ -78,19 +79,23 @@
                     serverSide: true,
                     responsive: true,
                     autoWidth: false,
-                    ajax: "{{ route('admin.statistic.index') }}",
+                    ajax: "{{ route('admin.social-media.index') }}",
                     columns: [
                         {
                             data: 'DT_RowIndex',
                             name: 'DT_RowIndex'
                         },
                         {
-                            data: 'title',
-                            name: 'title',
+                            data: 'app',
+                            name: 'app'
                         },
                         {
-                            data: 'value',
-                            name: 'value',
+                            data: 'name',
+                            name: 'name',
+                        },
+                        {
+                            data: 'link',
+                            name: 'link',
                         },
                         {
                             data: 'icon',

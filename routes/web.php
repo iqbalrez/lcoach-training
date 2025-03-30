@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\MeetingRequestController;
 use App\Http\Controllers\Admin\CaseStudiesController;
 use App\Http\Controllers\Admin\StatisticController;
+use App\Http\Controllers\Admin\SocialMediaController;
+use App\Http\Controllers\Admin\ValuesController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Mail;
 
@@ -26,8 +28,13 @@ Route::get('/', [LandingController::class, 'index'])->name('user.landing.index')
 Route::post('/store-meeting-request', [LandingController::class, 'storeMeetingRequest'])->name('user.meeting-request.store');
 
 Route::get('/who', [LandingController::class, 'who'])->name('user.landing.who');
-Route::get('/what', [LandingController::class, 'what'])->name('user.landing.what');
-Route::get('/case-studies', [LandingController::class, 'caseStudies'])->name('user.landing.case-studies');
+
+Route::get('/what', [LandingController::class, 'what'])->name('user.landing.what.index');
+Route::get('/what/{id}', [LandingController::class, 'whatDetail'])->name('user.landing.what.detail');
+
+Route::get('/case-studies', [LandingController::class, 'caseStudies'])->name('user.landing.case-studies.index');
+Route::get('/case-studies/{id}', [LandingController::class, 'caseStudiesDetail'])->name('user.landing.case-studies.detail');
+
 Route::get('/contact', [LandingController::class, 'contact'])->name('user.landing.contact');
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], function () {
@@ -69,6 +76,23 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'verified']], fu
         Route::get('/edit/{id}', [StatisticController::class, 'edit'])->name('admin.statistic.edit');
         Route::post('/update/{id}', [StatisticController::class, 'update'])->name('admin.statistic.update');
         Route::delete('/destroy/{id}', [StatisticController::class, 'destroy'])->name('admin.statistic.destroy');
+    });
+    Route::group(['prefix' => 'social-media'], routes: function () {
+        Route::get('/', [SocialMediaController::class, 'index'])->name('admin.social-media.index');
+        Route::get('/create', [SocialMediaController::class, 'create'])->name('admin.social-media.create');
+        Route::post('/store', [SocialMediaController::class, 'store'])->name('admin.social-media.store');
+        Route::get('/edit/{id}', [SocialMediaController::class, 'edit'])->name('admin.social-media.edit');
+        Route::post('/update/{id}', [SocialMediaController::class, 'update'])->name('admin.social-media.update');
+        Route::delete('/destroy/{id}', [SocialMediaController::class, 'destroy'])->name('admin.social-media.destroy');
+    });
+    
+    Route::group(['prefix' => 'values'], routes: function () {
+        Route::get('/', [ValuesController::class, 'index'])->name('admin.values.index');
+        Route::get('/create', [ValuesController::class, 'create'])->name('admin.values.create');
+        Route::post('/store', [ValuesController::class, 'store'])->name('admin.values.store');
+        Route::get('/edit/{id}', [ValuesController::class, 'edit'])->name('admin.values.edit');
+        Route::post('/update/{id}', [ValuesController::class, 'update'])->name('admin.values.update');
+        Route::delete('/destroy/{id}', [ValuesController::class, 'destroy'])->name('admin.values.destroy');
     });
 });
 

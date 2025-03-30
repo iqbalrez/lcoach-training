@@ -9,7 +9,7 @@
             </div>
             
             <div class="hidden md:block col-span-3 h-fit relative rounded-2xl overflow-hidden w-full">
-                    <img class="w-full aspect-square object-cover rounded-2xl" src="https://plus.unsplash.com/premium_photo-1661284828052-ea25d6ea94cd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a person working on a laptop">
+                    <img class="w-full aspect-square object-cover rounded-2xl" src="{{ $webConfig->hero_contact_image != null ? asset('storage/web_config/' . $webConfig->hero_contact_image)  : 'https://placehold.jp/200x200.png' }}" alt="Contact illustration">
             </div>
         </div> 
     </section>

@@ -46,6 +46,16 @@ class PartnerRepository implements PartnerInterface
     public function update($id, $data)
     {
         $partner = $this->partner->find($id);
+
+        if (isset($data['logo'])) {
+            $filename = uniqid() . '.' . $data['logo']->extension();
+            $data['logo']->storeAs('public/partner', $filename);
+            $data['logo'] = $filename;
+
+            if ($partner->image != null) {
+                Storage::delete('public/partner/' . $partner->logo);
+            }
+        }
         $partner->update($data);
         return $partner;
     }

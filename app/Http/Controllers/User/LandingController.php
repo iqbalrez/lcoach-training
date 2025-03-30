@@ -3,21 +3,40 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Interfaces\MeetingRequestInterface;
 use App\Interfaces\WebConfigInterface;
+use App\Interfaces\PartnerInterface;
+use App\Interfaces\ServicesInterface;
+use App\Interfaces\ValuesInterface;
+use App\Interfaces\CaseStudiesInterface;
+use App\Interfaces\StatisticInterface;
+use App\Interfaces\MeetingRequestInterface;
+use App\Interfaces\SocialMediaInterface;
 use App\Mail\MeetingRequestNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
-    private $meetingRequest;
     private $webConfig;
+    private $partner;
+    private $services;
+    private $values;
+    private $caseStudies;
+    private $statistic;
+    private $socialMedia;
+    private $meetingRequest;
 
-    public function __construct(MeetingRequestInterface $meetingRequest, WebConfigInterface $webConfig)
+
+    public function __construct(WebConfigInterface $webConfig, PartnerInterface $partner, ServicesInterface $services, ValuesInterface $values, CaseStudiesInterface $caseStudies, StatisticInterface $statistic,  SocialMediaInterface $socialMedia, MeetingRequestInterface $meetingRequest)
     {
-        $this->meetingRequest = $meetingRequest;
         $this->webConfig = $webConfig;
+        $this->partner = $partner;
+        $this->services = $services;
+        $this->values = $values;
+        $this->caseStudies = $caseStudies;
+        $this->statistic = $statistic;
+        $this->socialMedia = $socialMedia;
+        $this->meetingRequest = $meetingRequest;
     }
 
     public function index()
@@ -25,6 +44,11 @@ class LandingController extends Controller
         return view('user.landing',
             [
                 'webConfig' => $this->webConfig->getConfig(),
+                'partners' => $this->partner->getAll(),
+                'services' => $this->services->getAll(),
+                'caseStudies' => $this->caseStudies->getAll(),
+                'statistics' => $this->statistic->getAll(),
+                'socialMedia' => $this->socialMedia->getAll(),
             ]);
     }
 
@@ -54,23 +78,44 @@ class LandingController extends Controller
         return view('user.who',
             [
                 'webConfig' => $this->webConfig->getConfig(),
+                'values' => $this->values->getAll(),
             ]
     );
     }
 
     public function what()
     {
-        return view('user.what',
+        return view('user.services.index',
         [
             'webConfig' => $this->webConfig->getConfig(),
+            'services' => $this->services->getAll(),
+        ]);
+    }
+
+    public function whatDetail($id)
+    {
+        return view('user.services.detail',
+        [
+            'webConfig' => $this->webConfig->getConfig(),
+            'service' => $this->services->getById($id),
         ]);
     }
 
     public function caseStudies()
     {
-        return view('user.case-studies',
+        return view('user.case-studies.index',
         [
             'webConfig' => $this->webConfig->getConfig(),
+            'caseStudies' => $this->caseStudies->getAll(),
+        ]);
+    }
+
+    public function caseStudiesDetail($id)
+    {
+        return view('user.case-studies.detail',
+        [
+            'webConfig' => $this->webConfig->getConfig(),
+            'caseStudy' => $this->caseStudies->getById($id),
         ]);
     }
 

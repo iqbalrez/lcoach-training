@@ -14,8 +14,8 @@
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">        
                     <x-nav-link href="/" :active="request()->routeIs('user.landing.index')">Home</x-nav-link>
                     <x-nav-link href="/who" :active="request()->routeIs('user.landing.who')">Who we are</x-nav-link>
-                    <x-nav-link href="/what" :active="request()->routeIs('user.landing.what')">What we do</x-nav-link>
-                    <x-nav-link href="/case-studies" :active="request()->routeIs('user.landing.case-studies')">Case studies</x-nav-link>
+                    <x-nav-link href="/what" :active="request()->routeIs('user.landing.what.*')">What we do</x-nav-link>
+                    <x-nav-link href="/case-studies" :active="request()->routeIs('user.landing.case-studies.*')">Case studies</x-nav-link>
                     <x-nav-link href="/contact" :active="request()->routeIs('user.landing.contact')">Contact us</x-nav-link>
                 </div>
             </div>
@@ -37,8 +37,8 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="/" :active="request()->routeIs('user.landing.index')">Home</x-responsive-nav-link>
             <x-responsive-nav-link href="/who" :active="request()->routeIs('user.landing.who')">Who we are</x-responsive-nav-link>
-            <x-responsive-nav-link href="/what" :active="request()->routeIs('user.landing.what')">What we do</x-responsive-nav-link>
-            <x-responsive-nav-link href="/case-studies" :active="request()->routeIs('user.landing.case-studies')">Case studies</x-responsive-nav-link>
+            <x-responsive-nav-link href="/what" :active="request()->routeIs('user.landing.what.*')">What we do</x-responsive-nav-link>
+            <x-responsive-nav-link href="/case-studies" :active="request()->routeIs('user.landing.case-studies.*')">Case studies</x-responsive-nav-link>
             <x-responsive-nav-link href="/contact" :active="request()->routeIs('user.landing.contact')">Contact us</x-responsive-nav-link>
         </div>
 

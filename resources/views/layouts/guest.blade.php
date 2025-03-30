@@ -15,17 +15,22 @@
     <!-- Sweet Alert 2 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css">
 
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
 </head>
 
-<body class="font-sans antialiased overflow-x-hidden">
+<body class="font-[figtree] antialiased overflow-x-hidden">
     <x-navbar />
     <div class="min-h-screen bg-white font-primary max-w-screen">
         {{ $slot }}
     </div>
 
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>

@@ -35,13 +35,16 @@
     {{-- ckeditor --}}
     <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
     <script>
-    ClassicEditor
-        .create(document.querySelector('#content'), {
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'uploadImage', 'bulletedList', 'numberedList', 'blockQuote'],
-            width: '100%'
-        })
-        .catch(error => {
-            console.error(error);
+        document.addEventListener("DOMContentLoaded", function() {
+            ClassicEditor
+                .create(document.querySelector('#content'), {
+                    removePlugins: ['AutoFormat']
+                    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote'],
+                    width: '100%'
+                })
+                .catch(error => {
+                    console.error(error);
+                });
         });
     </script>
     @endpush

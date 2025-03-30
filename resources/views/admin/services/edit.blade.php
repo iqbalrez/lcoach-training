@@ -16,9 +16,9 @@
                         <div class="mb-4 max-w-full">
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-500">Deskripsi</label>
-                            <textarea id="description" rows="4" name="description" :value="$services->description"
-                                class="p-2.5 max-w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500"
-                                placeholder=""></textarea>
+                            <textarea id="description" rows="1" name="description"
+                                class="p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500"
+                                >{{$services->description}}</textarea>
                         </div>
                         <div class="mb-4 max-w-full">
                             <label for="content" class="block mb-2 text-sm font-medium text-gray-500">Konten</label>

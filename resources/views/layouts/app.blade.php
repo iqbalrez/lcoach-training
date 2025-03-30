@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css">
 
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-[figtree] antialiased">
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
@@ -36,10 +36,12 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <main class="font-[figtree]">
                 {{ $slot }}
             </main>
 
+            <x-footer />
+            
             <!-- Jquery -->
             <script src="https://code.jquery.com/jquery-3.7.0.min.js"
             integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>

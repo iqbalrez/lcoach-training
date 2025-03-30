@@ -15,12 +15,16 @@ return new class extends Migration
         Schema::create('web_configs', function (Blueprint $table) {
             $table->id();
             $table->string('hero_landing_copywriting');
-            $table->string('about_landing_copywriting');
+            $table->longText('about_landing_copywriting');
             $table->string('partner_copywriting');
             $table->string('contact_copywriting');
             $table->string('hero_who_copywriting');
             $table->string('subheading_who');
-            $table->string('who_copywriting');
+            $table->string('who_caption_1');
+            $table->string('who_caption_2');
+            $table->string('who_caption_3');
+            $table->string('who_caption_4');
+            $table->longText('who_copywriting');
             $table->string('hero_what_copywriting');
             $table->string('hero_case_studies_copywriting');
             $table->string('hero_contact_copywriting');
@@ -29,6 +33,10 @@ return new class extends Migration
             $table->longText('about_landing_image_2')->nullable();
             $table->longText('about_landing_image_3')->nullable();
             $table->longText('about_landing_image_4')->nullable();
+            $table->longText('who_image_1')->nullable();
+            $table->longText('who_image_2')->nullable();
+            $table->longText('who_image_3')->nullable();
+            $table->longText('who_image_4')->nullable();
             $table->longText('video_landing_link');
             $table->longText('hero_who_image')->nullable();
             $table->longText('hero_what_image')->nullable();

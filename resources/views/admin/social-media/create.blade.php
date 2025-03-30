@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Tambah Stats') }}
+            {{ __('Tambah Social Media') }}
         </h2>
     </x-slot>
 
@@ -10,10 +10,11 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     <div class="flex flex-col md:pr-6">
-                        <form action="{{ route('admin.statistic.store') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.social-media.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <x-input id="title" label="Judul" name="title" required />
-                        <x-input id="value" label="Value" name="value" required />
+                        <x-input id="app" label="App" name="app" required />
+                        <x-input id="name" label="Username" name="name" required />
+                        <x-input id="link" label="Link" name="link" required />
                         <x-input-file id="icon" name="icon" label="Ikon" required
                         help="SVG. Maksimal 2MB" />
                         <button type="submit"
@@ -24,19 +25,4 @@
             </div>
         </div>
     </div>
-
-    @push('js-internal')
-    {{-- ckeditor --}}
-    <script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
-    <script>
-    ClassicEditor
-        .create(document.querySelector('#content'), {
-            toolbar: ['heading', '|', 'bold', 'italic', 'link', 'uploadImage', 'bulletedList', 'numberedList', 'blockQuote'],
-            width: '100%'
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    </script>
-    @endpush
 </x-app-layout>

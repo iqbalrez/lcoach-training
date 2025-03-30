@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @source "../views";
 
 
 @theme {
-    --font-primary: "Inter", sans;
+    --font-primary: "Figtree", sans;
 }
 
 input[type=file]::file-selector-button {
@@ -21,6 +21,28 @@ input[type=file]::file-selector-button {
 .ck-editor__main {
     max-width: 100%;
     box-sizing: border-box;
+}
+
+.ck-content ul,
+.ck-content ol {
+    list-style-type: disc;
+    padding-left: 20px;
+    display: block;
+}
+
+.ck-content h1,
+.ck-content h2,
+.ck-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1rem;
+    -webkit-text-fill-color: #162456;
+}
+
+.ck-content img {
+    max-width: 80%;
+    height: auto;
+    @apply rounded-2xl justify-center mx-auto;
 }
 
 #DataTables_Table_0_wrapper>div.top {

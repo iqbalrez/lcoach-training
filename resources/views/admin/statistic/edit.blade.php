@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Ubah Statistik') }}
+            {{ __('Ubah Stats') }}
         </h2>
     </x-slot>
 
@@ -11,9 +11,9 @@
                 <div class="p-6 text-gray-900 md:grid">
                     <form action="{{ route('admin.statistic.update', $statistic->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <x-input id="icon" label="Nama" name="icon" required :value="$statistic->icon"/>
-                        <x-input id="value" label="Value" name="value" :value="$statistic->value"/>
-                        <x-input-file id="icon" name="icon" label="Ikon" required value="{{ $statistic->icon }}"
+                        <x-input id="title" label="Nama" name="title" required :value="$statistic->title"/>
+                        <x-input id="value" label="Value" name="value" required :value="$statistic->value"/>
+                        <x-input-file id="icon" name="icon" label="Ikon" value="{{ $statistic->icon }}"
                         help="SVG. Maksimal 2MB" />
                         <button type="submit"
                             class="mt-4 bg-blue-950 text-white px-4 py-2 rounded-md hover:bg-gray-700">Ubah</button>

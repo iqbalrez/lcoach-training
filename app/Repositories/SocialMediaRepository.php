@@ -28,7 +28,7 @@ class SocialMediaRepository implements SocialMediaInterface
     public function store($data)
     {
         $fileNameImage = uniqid() . '.' . $data['icon']->extension();
-        $data['icon']->storeAs('public/SocialMedia', $fileNameImage);
+        $data['icon']->storeAs('public/social_media', $fileNameImage);
         $data['icon'] = $fileNameImage;
 
         DB::beginTransaction();
@@ -46,6 +46,16 @@ class SocialMediaRepository implements SocialMediaInterface
     public function update($id, $data)
     {
         $socialMedia = $this->socialMedia->find($id);
+
+        if (isset($data['icon'])) {
+            $filename = uniqid() . '.' . $data['icon']->extension();
+            $data['icon']->storeAs('public/social_media', $filename);
+            $data['icon'] = $filename;
+
+            if ($socialMedia->image != null) {
+                Storage::delete('public/social_media/' . $socialMedia->icon);
+            }
+        }
         $socialMedia->update($data);
         return $socialMedia;
     }

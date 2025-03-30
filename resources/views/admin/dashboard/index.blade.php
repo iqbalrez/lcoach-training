@@ -11,6 +11,7 @@
                 <form action="{{ route('admin.dashboard.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
+                    
                     <div class="p-6 text-gray-900 md:grid grid-cols-2">
                         <div class="flex flex-col md:pr-6">
                             <h2 class="text-lg font-bold mb-2">Konfigurasi Halaman Landing</h2>
@@ -62,30 +63,7 @@
                                 </div>
                             </div>
 
-                        </div>
-                        <div class="flex flex-col md:border-l-2 md:border-gray-200 md:pl-6">
-
-                            <h2 class="text-lg font-bold mt-2 md:mt-0 mb-2">Konfigurasi Halaman Who</h2>
-                            <x-input label="Judul Halaman Who" name="hero_who_copywriting" :value="$webConfig->hero_who_copywriting" />
-                            <x-input label="Subheading Halaman Who" name="subheading_who"
-                                :value="$webConfig->subheading_who" />
-                                <div class="mb-4 max-w-full">
-                                    <label for="who_copywriting"
-                                        class="block mb-2 text-sm font-medium text-gray-500">Subjudul</label>
-                                    <textarea id="who_copywriting" rows="4" name="who_copywriting" :value="$webConfig->who_copywriting"
-                                        class="p-2.5 max-w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500"
-                                        placeholder=""></textarea>
-                                </div>
-                            <div class="grid grid-cols-7 gap-4 mb-1">
-                                <img class="aspect-square w-full object-cover rounded-lg"
-                                    src="{{ $webConfig->hero_who_image != null ? asset('storage/web_config/' . $webConfig->hero_who_image) : 'https://placehold.jp/150x150.png' }}"
-                                    alt="">
-                                <div class="col-span-6">
-                                    <x-input-file id="hero_who_image" name="hero_who_image" label="Gambar Hero Who"
-                                        value="{{ $webConfig->hero_who_image }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
-                                </div>
-                            </div>
-
+                            
                             <h2 class="text-lg font-bold mt-2 mb-2">Konfigurasi Halaman What</h2>
                             <x-input label="Judul Halaman What" name="hero_what_copywriting" :value="$webConfig->hero_what_copywriting" />
                             <div class="grid grid-cols-7 gap-4 mb-1">
@@ -127,11 +105,80 @@
                                     <x-input-file id="hero_contact_image" name="hero_contact_image" label="Gambar Hero Contact"
                                         help="JPG, JPEG, PNG. Maksimal 2MB" />
                                 </div>
+                            </div>  
+                        </div>
+                        <div class="flex flex-col md:border-l-2 md:border-gray-200 md:pl-6">
+
+                            <h2 class="text-lg font-bold mt-2 md:mt-0 mb-2">Konfigurasi Halaman Who</h2>
+                            <x-input label="Judul Halaman Who" name="hero_who_copywriting" :value="$webConfig->hero_who_copywriting" />
+                            <div class="grid grid-cols-7 gap-4 mb-1">
+                                <img class="aspect-square w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->hero_who_image != null ? asset('storage/web_config/' . $webConfig->hero_who_image) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-6">
+                                    <x-input-file id="hero_who_image" name="hero_who_image" label="Gambar Hero Who"
+                                        value="{{ $webConfig->hero_who_image }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
+                                </div>
+                            </div>
+                            <x-input label="Subheading Halaman Who" name="subheading_who"
+                                :value="$webConfig->subheading_who" />
+                            
+                                <div class="mb-4 max-w-full">
+                                    <label for="who_copywriting"
+                                    class="block mb-2 text-sm font-medium text-gray-500">Subjudul</label>
+                                    <textarea id="who_copywriting" rows="4" name="who_copywriting" :value="$webConfig->who_copywriting"
+                                        class="p-2.5 max-w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-gray-500 focus:border-gray-500"
+                                        placeholder=""></textarea>
+                                    </div>
+                            
+                            <x-input label="Caption Gambar Who 1" name="who_caption_1" :value="$webConfig->who_caption_1" />
+                            <div class="grid grid-cols-7 gap-4 mb-1">
+                                <img class="aspect-square w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->who_image_1 != null ? asset('storage/web_config/' . $webConfig->who_image_1) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-6">
+                                    <x-input-file id="who_image_1" name="who_image_1" label="Gambar Who 1"
+                                        value="{{ $webConfig->who_image_1 }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
+                                </div>
+                            </div>
+
+                            <x-input label="Caption Gambar Who 2" name="who_caption_2" :value="$webConfig->who_caption_2" />
+                            <div class="grid grid-cols-7 gap-4 mb-1">
+                                <img class="aspect-square w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->who_image_2 != null ? asset('storage/web_config/' . $webConfig->who_image_2) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-6">
+                                    <x-input-file id="who_image_2" name="who_image_2" label="Gambar Who 2"
+                                        value="{{ $webConfig->who_image_2 }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
+                                </div>
+                            </div>
+
+                            <x-input label="Caption Gambar Who 3" name="who_caption_3" :value="$webConfig->who_caption_3" />
+                            <div class="grid grid-cols-7 gap-4 mb-1">
+                                <img class="aspect-square w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->who_image_3 != null ? asset('storage/web_config/' . $webConfig->who_image_3) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-6">
+                                    <x-input-file id="who_image_3" name="who_image_3" label="Gambar Who 3"
+                                        value="{{ $webConfig->who_image_3 }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
+                                </div>
+                            </div>
+
+                            <x-input label="Caption Gambar Who 4" name="who_caption_4" :value="$webConfig->who_caption_4" />
+                            <div class="grid grid-cols-7 gap-4 mb-1">
+                                <img class="aspect-square w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->who_image_4 != null ? asset('storage/web_config/' . $webConfig->who_image_4) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-6">
+                                    <x-input-file id="who_image_4" name="who_image_4" label="Gambar Who 4"
+                                        value="{{ $webConfig->who_image_4 }}" help="JPG, JPEG, PNG. Maksimal 2MB" />
+                                </div>
                             </div>
                         </div>
-
-                        <button type="submit"
-                            class="mt-4 bg-blue-950 text-white px-4 py-2 rounded-md hover:bg-gray-700">Simpan</button>
+                        <div class="col-span-2 flex justify-center">
+                            <button type="submit"
+                                class="w-fit mt-4 bg-blue-950 text-white px-20 py-2 rounded-md hover:bg-gray-700">Simpan</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -150,5 +197,6 @@
         $('#who_copywriting').val(`{!! $webConfig->who_copywriting !!}`);
         });
     </script>
+    
 @endpush
 </x-app-layout>

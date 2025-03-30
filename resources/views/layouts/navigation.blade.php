@@ -28,10 +28,16 @@
                         {{ __('Case Studies') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.statistic.index')" :active="request()->routeIs('admin.statistic.*')">
-                        {{ __('Statistik') }}
+                        {{ __('Stats') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.values.index')" :active="request()->routeIs('admin.values.*')">
+                        {{ __('Values') }}
                     </x-nav-link>
                     <x-nav-link :href="route('admin.partner.index')" :active="request()->routeIs('admin.partner.*')">
                         {{ __('Partner') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('admin.social-media.index')" :active="request()->routeIs('admin.social-media.*')">
+                        {{ __('Social Media') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -52,10 +58,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -98,10 +100,16 @@
                 {{ __('Case Studies') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.statistic.index')" :active="request()->routeIs('admin.statistic.*')">
-                {{ __('Statistik') }}
+                {{ __('Stats') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.values.index')" :active="request()->routeIs('admin.values.*')">
+                {{ __('Values') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('admin.partner.index')" :active="request()->routeIs('admin.partner.*')">
                 {{ __('Partner') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('admin.social-media.index')" :active="request()->routeIs('admin.social-media.*')">
+                {{ __('Social Media') }}
             </x-responsive-nav-link>
         </div>
 

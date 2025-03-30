@@ -3,9 +3,9 @@
     <section class="flex justify-center">
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-screen md:max-w-5xl h-fit items-center px-6 py-12 lg:px-0 md:py-24">
             <div class="flex items-center h-fit md:col-span-7">
-                <div class="justifty-center text-center md:text-start w-full">
+                <div class="justify-center text-center md:text-start w-full">
                     <h1 class="text-4xl md:text-5xl font-bold text-gray-800 md:pr-24">{{ $webConfig->hero_landing_copywriting }}</h1>
-                    <a href="#partner" class="mt-8 inline-block bg-amber-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded">Learn more</a>
+                    <a href="#partner" class="transition-colors mt-8 inline-block bg-amber-500 hover:bg-blue-950 text-white font-semibold px-6 py-3 rounded">Learn more</a>
                 </div>
             </div>
             
@@ -13,39 +13,34 @@
                 <div id="imgContainer"
                     class="group relative flex flex-col overflow-hidden rounded-2xl flex-grow aspect-[4/3]">
                     <div id="sliderWrapper" class="flex transition-transform dration-1000 ease-in-out w-full">
-                        <div class="translate-x-0 z-0 object-center translate-y-0 absolute inset-0 w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" id="caseStudy1">
+                        @foreach ($caseStudies->take(1) as $caseStudy)
+                        <div class="translate-x-0 z-0 object-center translate-y-0 absolute inset-0 w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" id="caseStudy-{{$caseStudy->id}}">
                             <div class="">
-                                <img class="w-full aspect-[4/3] object-cover" src="https://plus.unsplash.com/premium_photo-1661284828052-ea25d6ea94cd?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a person working on a laptop">
+                                <div class="absolute inset-0 bg-gradient-to-tl from-black/60"></div>
+                                <img class="w-full aspect-[4/3] object-cover" src="{{ $caseStudy->image != null ? asset('storage/case_studies/' . $caseStudy->image)  : 'https://placehold.jp/200x200.png' }}" alt="Image of a person working on a laptop">
                             </div>
-                            <a href="{{route('user.landing.case-studies')}}" class="absolute isolate bottom-8 px-8 py-6 w-full bg-blend-darken bg-amber-700/80">
+                            <a href="{{route('user.landing.case-studies.detail', $caseStudy->id)}}" class="absolute isolate bottom-8 px-8 py-6 w-full bg-blend-darken bg-amber-700/80">
                                 <div class="text-2xl font-bold text-white items-center inline-flex gap-2">
-                                    <p class="max-w-[92%]">Banking, Financial and Insurance Services Industry </p>
+                                    <p class="max-w-[92%] line-clamp-2 hover:line-clamp-none">{{ $caseStudy->title }}</p>
                                     <svg class="w-6 h-6 fixed bottom-14 right-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </div>
                             </a>
                         </div>
-                        <div class="translate-x-full z-0 object-center translate-y-0 absolute inset-0 w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" id="caseStudy2">
+                        @endforeach
+
+                        @foreach ($caseStudies->skip(1) as $caseStudy)    
+                        <div class="translate-x-full z-0 object-center translate-y-0 absolute inset-0 w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" id="caseStudy-{{$caseStudy->id}}">
                             <div class="">
-                                <img class="w-full aspect-[4/3] object-cover" src="https://plus.unsplash.com/premium_photo-1664372145591-f7cc308ff5da?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a person working on a laptop">
+                                <img class="w-full aspect-[4/3] object-cover" src="{{ $caseStudy->image != null ? asset('storage/case_studies/' . $caseStudy->image)  : 'https://placehold.jp/200x200.png' }}" titleImage of a person working on a laptop">
                             </div>
-                            <a href="{{route('user.landing.case-studies')}}" class="absolute isolate bottom-8 px-8 py-6 w-full bg-blend-darken bg-blue-700/80">
+                            <a href="{{route('user.landing.case-studies.detail', $caseStudy->id)}}" class="absolute isolate bottom-8 px-8 py-6 w-full bg-blend-darken {{$caseStudy->id % 3 == 1 ? "bg-blue-700/80" : ($caseStudy->id % 3 == 2 ? "bg-purple-700/80" : "bg-amber-700/80")}}">
                                 <div class="text-2xl font-bold text-white items-center inline-flex gap-2">
-                                    <p class="max-w-[92%]"> Healthcare, Property, Consumer  </p>
+                                    <p class="max-w-[92%] line-clamp-2 hover:line-clamp-none">{{ $caseStudy->title }}</p>
                                     <svg class="w-6 h-6 fixed bottom-14 right-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
                                 </div>
                             </a>
                         </div>
-                        <div class="translate-x-full z-0 object-center translate-y-0 absolute inset-0 w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" id="caseStudy3">
-                            <div class="">
-                                <img class="w-full aspect-[4/3] object-cover" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Image of a person working on a laptop">
-                            </div>
-                            <a href="{{route('user.landing.case-studies')}}" class="absolute isolate bottom-8 px-8 py-6 w-full bg-blend-darken bg-purple-700/80">
-                                <div class="text-2xl font-bold text-white items-center inline-flex gap-2">
-                                    <p class="max-w-[92%]"> Automotive, Transportation, and Logistics  </p>
-                                    <svg class="w-6 h-6 fixed bottom-14 right-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -71,12 +66,9 @@
             </div>
             
             <div class="md:col-span-7 h-fit overflow-hidden flex gap-3">
-                <img class="h-15 aspect-[4/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                <img class="h-15 aspect-[7/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                <img class="h-15 aspect-[7/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                <img class="h-15 aspect-[6/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                <img class="h-15 aspect-[4/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                <img class="h-15 aspect-[5/3] object-center opacity-40" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
+                @foreach ($partners as $partner)
+                    <img class="h-15 aspect-[4/3] object-center" src="{{ $partner->logo != null ? asset('storage/partners/' . $partner->logo) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
+                @endforeach
             </div>
         </div> 
     </section>
@@ -85,57 +77,26 @@
     <section class="flex justify-center bg-white px-6 lg:px-0 py-6">
         <div class="lg:w-5xl">
             <h2 class="text-3xl font-bold text-blue-950 mb-6">Our services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                @foreach ($services as $service)
                 {{-- Card --}}
-                <div class="rounded-2xl overflow-hidden bg-white drop-shadow-md w-full flex flex-col gap-8 h-auto">
-                    <div class="flex flex-col gap-2">
-                        <img class="w-full aspect-[4/3] object-cover opacity-50 bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
+                <div class="hover:scale-105 transition-transform rounded-2xl overflow-hidden bg-white drop-shadow-md w-full flex flex-col gap-8 h-auto">
+                    <div class="flex flex-row gap-2 items-center">
+                        <img class="w-2/5 aspect-[4/3] object-cover bg-gray-100" src="{{ $service->image != null ? asset('storage/services/' . $service->image) : 'https://placehold.jp/150x150.png' }}" alt="{{ $service->title }} illustration">
                         <div class="px-6 py-3 flex flex-col gap-2">
-                            <h3 class="text-xl font-bold text-blue-950">Learning, Coaching, and Consulting</h3>
-                            <hr class="border border-gray-300 my-2"></hr>
-                            <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
+                            <p class="text-lg font-semibold text-blue-950">{{ $service->title }}</p>
                         </div>
                     </div>
-                    
-                    <div class="items-end justify-end h-full bg-transparent flex px-6 pb-6">
-                        <a class="flex gap-2 items-center text-amber-500 gap-x-2"><p class="hover:text-blue-950 text-black">Read more</p> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a>
-                    </div>
                 </div>
+                @endforeach
+            </div>
                 
-                {{-- Card --}}
-                <div class="rounded-2xl overflow-hidden bg-white drop-shadow-md w-full flex flex-col gap-8 h-auto">
-                    <div class="flex flex-col gap-2">
-                        <img class="w-full aspect-[4/3] object-cover opacity-50 bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                        <div class="px-6 py-3 flex flex-col gap-2">
-                            <h3 class="text-xl font-bold text-blue-950">Assesment and Psychological Test</h3>
-                            <hr class="border border-gray-300 my-2"></hr>
-                            <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
-                        </div>
-                    </div>
-                    
-                    <div class="items-end justify-end h-full bg-transparent flex px-6 pb-6">
-                        <a class="flex gap-2 items-center text-amber-500 gap-x-2"><p class="hover:text-blue-950 text-black">Read more</p> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a>
-                    </div>
-                </div>
-                
-                 {{-- Card --}}
-                 <div class="rounded-2xl overflow-hidden bg-white drop-shadow-md w-full flex flex-col gap-8 h-auto">
-                    <div class="flex flex-col gap-2">
-                        <img class="w-full aspect-[4/3] object-cover opacity-50 bg-gray-100" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                        <div class="px-6 py-3 flex flex-col gap-2">
-                            <h3 class="text-xl font-bold text-blue-950">Organization Development</h3>
-                            <hr class="border border-gray-300 my-2"></hr>
-                            <p class="text-gray-800"> Lorem ipsum dolor sit amet consectetur tellus elit mattis </p>
-                        </div>
-                    </div>
-                    
-                    <div class="items-end justify-end h-full bg-transparent flex px-6 pb-6">
-                        <a class="flex gap-2 items-center text-amber-500 gap-x-2"><p class="hover:text-blue-950 text-black">Read more</p> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M7 17L17 7M17 7H8M17 7V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></a>
-                    </div>
-                </div>
-                
-            </div> 
+            <a href="{{route('user.landing.what.index')}}" class="flex justify-center">
+                <button class="mt-8 inline-block transition-colors  bg-amber-500 hover:bg-blue-950 text-white font-semibold px-4 py-2 rounded">
+                    Explore more →
+                </button>
+            </a>
         </div>
     </section>
 
@@ -154,12 +115,12 @@
                 <div class="md:col-span-6 h-fit order-last">
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex flex-col gap-4 pt-24">
-                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_1)  }}" alt="Image of a person working on a laptop">
-                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_2)  }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] shadow-md object-cover rounded-xl bg-gray-100" src="{{ $webConfig->about_landing_image_1 != null ? asset('storage/web_config/' . $webConfig->about_landing_image_1) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] shadow-md object-cover rounded-xl bg-gray-100" src="{{ $webConfig->about_landing_image_2 != null ? asset('storage/web_config/' . $webConfig->about_landing_image_2) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
                         </div>
                         <div class="flex flex-col gap-4">
-                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_3)  }}" alt="Image of a person working on a laptop">
-                            <img class="w-full aspect-[4/3] object-cover rounded-xl bg-gray-100" src="{{ asset('storage/web_config/' . $webConfig->about_landing_image_4)  }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] shadow-md object-cover rounded-xl bg-gray-100" src="{{ $webConfig->about_landing_image_3 != null ? asset('storage/web_config/' . $webConfig->about_landing_image_3) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
+                            <img class="w-full aspect-[4/3] shadow-md object-cover rounded-xl bg-gray-100" src="{{ $webConfig->about_landing_image_4 != null ? asset('storage/web_config/' . $webConfig->about_landing_image_4) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
                         </div>
                     </div>
                 </div>
@@ -193,35 +154,17 @@
         <div class="mx-auto lg:w-5xl">
             <h2 class="text-center text-3xl font-bold text-blue-950 mb-6">Why us</h2>
             <div class="grid md:grid-cols-3 gap-12 w-full h-fit items-center">
+                @foreach ($statistics as $statistic)
                 <div class="flex w-full items-center gap-6">
-                    <div class="flex-shrink">
-                        <img class="h-24 rounded-full aspect-square object-cover opacity-50" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
+                    <div class="flex-shrink rounded-full p-2">
+                        <img class="h-16" src="{{ $statistic->icon != null ? asset('storage/statistic/' . $statistic->icon) : 'https://placehold.jp/150x150.png' }}" alt="Image of a person working on a laptop">
                     </div>
                     <div class="flex-grow flex-col">
-                        <p class="text-4xl text-amber-500 font-bold">5</p>
-                        <p class="text-md text-blue-950">years of experience</p>
+                        <p class="text-4xl text-amber-500 font-bold">{{ $statistic->value }}</p>
+                        <p class="text-md text-blue-950">{{ $statistic->title }}</p>
                     </div>
                 </div>
-
-                <div class="flex w-full items-center gap-6">
-                    <div class="flex-shrink">
-                        <img class="h-24 rounded-full aspect-square object-cover opacity-50 opacity-50" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    </div>
-                    <div class="flex-grow flex-col">
-                        <p class="text-4xl text-amber-500 font-bold">1.000+</p>
-                        <p class="text-md text-blue-950">participants per year</p>
-                    </div>
-                </div>
-
-                <div class="flex w-full items-center gap-6">
-                    <div class="flex-shrink">
-                        <img class="h-24 rounded-full aspect-square object-cover opacity-50 opacity-50" src="https://thumb.ac-illust.com/b1/b170870007dfa419295d949814474ab2_w.jpeg" alt="Image of a person working on a laptop">
-                    </div>
-                    <div class="flex-grow flex-col">
-                        <p class="text-4xl text-amber-500 font-bold">50</p>
-                        <p class="text-md text-blue-950">OMNI classes per year</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
@@ -248,11 +191,7 @@
         let currentImgIndex = 0;
         const totalSlides = document.querySelectorAll('#sliderWrapper img').length;
 
-        const caseStudy = [
-            document.getElementById('caseStudy1'),
-            document.getElementById('caseStudy2'),
-            document.getElementById('caseStudy3'),
-        ];
+        const caseStudy = document.querySelectorAll('[id^="caseStudy-"]')
 
         function cycle() {
             setInterval(() => {

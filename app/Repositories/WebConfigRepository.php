@@ -27,6 +27,10 @@ class WebConfigRepository implements WebConfigInterface
                 'contact_copywriting' => 'Feel free to reach out to us for personalized assistance, inquiries about our services, or collaboration opportunities. Our team is here to provide the support and information you need to achieve your goals.',
                 'hero_who_copywriting' => 'We bring years of experience and a proven track records.',
                 'subheading_who' => 'So, who we are?',
+                'who_caption_1' => 'Business Training, PT. Abadi Jaya',
+                'who_caption_2' => 'Coaching, Mandiri Inhealth',
+                'who_caption_3' => 'Coaching, Pertamina',
+                'who_caption_4' => 'Digital Training, Astra International',
                 'who_copywriting' => '<p>We are a team of professionals with years of experience in business, marketing, and entrepreneurship. We have a proven track record of helping businesses and individuals achieve their goals.</p>',
                 'hero_what_copywriting' => 'We believe in empowering businesses and individuals to reach their full potential.',
                 'hero_case_studies_copywriting' => 'Explore how we’ve helped businesses achieve their goals.',
@@ -36,6 +40,10 @@ class WebConfigRepository implements WebConfigInterface
                 'about_landing_image_2' => null,
                 'about_landing_image_3' => null,
                 'about_landing_image_4' => null,
+                'who_image_1' => null,
+                'who_image_2' => null,
+                'who_image_3' => null,
+                'who_image_4' => null,
                 'video_landing_link' => 'https://www.youtube.com/watch?v=UXf9K9UeW4Y',
                 'hero_who_image' => null,
                 'hero_what_image' => null,
@@ -149,6 +157,47 @@ class WebConfigRepository implements WebConfigInterface
 
             if ($webConfig->app_logo != null) {
                 Storage::delete('public/web_config/' . $webConfig->app_logo);
+            }
+        }
+
+        
+        if (isset($data['who_image_1'])) {
+            $filename = uniqid() . '.' . $data['who_image_1']->extension();
+            $data['who_image_1']->storeAs('public/web_config', $filename);
+            $data['who_image_1'] = $filename;
+
+            if ($webConfig->who_image_1 != null) {
+                Storage::delete('public/web_config/' . $webConfig->who_image_1);
+            }
+        }
+
+        if (isset($data['who_image_2'])) {
+            $filename = uniqid() . '.' . $data['who_image_2']->extension();
+            $data['who_image_2']->storeAs('public/web_config', $filename);
+            $data['who_image_2'] = $filename;
+
+            if ($webConfig->who_image_2 != null) {
+                Storage::delete('public/web_config/' . $webConfig->who_image_2);
+            }
+        }
+
+        if (isset($data['who_image_3'])) {
+            $filename = uniqid() . '.' . $data['who_image_3']->extension();
+            $data['who_image_3']->storeAs('public/web_config', $filename);
+            $data['who_image_3'] = $filename;
+
+            if ($webConfig->who_image_3 != null) {
+                Storage::delete('public/web_config/' . $webConfig->who_image_3);
+            }
+        }
+
+        if (isset($data['who_image_4'])) {
+            $filename = uniqid() . '.' . $data['who_image_4']->extension();
+            $data['who_image_4']->storeAs('public/web_config', $filename);
+            $data['who_image_4'] = $filename;
+
+            if ($webConfig->who_image_4 != null) {
+                Storage::delete('public/web_config/' . $webConfig->who_image_4);
             }
         }
 

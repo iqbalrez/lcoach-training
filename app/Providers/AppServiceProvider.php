@@ -10,6 +10,7 @@ use App\Interfaces\ServicesInterface;
 use App\Interfaces\SocialMediaInterface;
 use App\Interfaces\StatisticInterface;
 use App\Interfaces\WebConfigInterface;
+use App\Interfaces\ValuesInterface;
 use App\Repositories\CaseStudiesRepository;
 use App\Repositories\MeetingRequestRepository;
 use App\Repositories\PartnerRepository;
@@ -17,6 +18,7 @@ use App\Repositories\ServicesRepository;
 use App\Repositories\SocialMediaRepository;
 use App\Repositories\StatisticRepository;
 use App\Repositories\WebConfigRepository;
+use App\Repositories\ValuesRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(SocialMediaInterface::class, SocialMediaRepository::class);
         $this->app->bind(StatisticInterface::class, StatisticRepository::class);
         $this->app->bind(WebConfigInterface::class, WebConfigRepository::class);
+        $this->app->bind(ValuesInterface::class, ValuesRepository::class);
     }
 
     /**

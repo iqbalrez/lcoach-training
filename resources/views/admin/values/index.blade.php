@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 items-center flex">
-            {{ __('Stats') }}
-            <a href="{{ route('admin.statistic.create') }}"
+            {{ __('Values') }}
+            <a href="{{ route('admin.values.create') }}"
             class="ml-2 text-white bg-blue-950 items-center px-4 rounded-full hover:bg-gray-700">
             +
             </a> 
@@ -18,8 +18,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Judul</th>
-                                <th>Value</th>
-                                <th>Ikon</th>
+                                <th>Deskripsi</th>
+                                <th>Image</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -43,7 +43,7 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "{{ route('admin.statistic.destroy', ':id') }}".replace(':id', id),
+                        url: "{{ route('admin.values.destroy', ':id') }}".replace(':id', id),
                         type: 'DELETE',
                         data: {
                             '_token': "{{ csrf_token() }}"
@@ -78,7 +78,7 @@
                     serverSide: true,
                     responsive: true,
                     autoWidth: false,
-                    ajax: "{{ route('admin.statistic.index') }}",
+                    ajax: "{{ route('admin.values.index') }}",
                     columns: [
                         {
                             data: 'DT_RowIndex',
@@ -86,15 +86,15 @@
                         },
                         {
                             data: 'title',
-                            name: 'title',
+                            name: 'title'
                         },
                         {
-                            data: 'value',
-                            name: 'value',
+                            data: 'description',
+                            name: 'description',
                         },
                         {
-                            data: 'icon',
-                            name: 'icon'
+                            data: 'image',
+                            name: 'image'
                         },
                         {
                             data: 'action',
