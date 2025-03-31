@@ -19,6 +19,7 @@ use App\Repositories\SocialMediaRepository;
 use App\Repositories\StatisticRepository;
 use App\Repositories\WebConfigRepository;
 use App\Repositories\ValuesRepository;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -42,6 +43,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        if(config(env('APP_ENV')) === 'local'){
+            URL::forceScheme('https');
+        }
     }
 }
