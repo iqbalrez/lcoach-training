@@ -15,7 +15,7 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://your.url.from.vercel.app",
+        "APP_URL": "https://lcoach-training-695k.vercel.app/",
         "APP_KEY": "base64:1ebw+35JF8nBBVuICQZCn6iVomm3xAaLaiep9naXJlI=",
         "APP_CONFIG_CACHE": "/tmp/config.php",
         "APP_EVENTS_CACHE": "/tmp/events.php",
