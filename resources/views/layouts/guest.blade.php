@@ -17,7 +17,7 @@
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('resources/css/app.css') }}">
     
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -36,7 +36,7 @@
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
 
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('resources/js/app.js') }}"></script>
 
     @stack('js-internal')
 </body>
