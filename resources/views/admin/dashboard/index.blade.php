@@ -108,7 +108,17 @@
                             </div>  
                         </div>
                         <div class="flex flex-col md:border-l-2 md:border-gray-200 md:pl-6">
-
+                            
+                            <h2 class="text-lg font-bold mt-2 md:mt-0 mb-2">Logo</h2>
+                            <div class="grid grid-cols-7 gap-4 mb-1 items-center">
+                                <img class="col-span-2 w-full object-cover rounded-lg"
+                                    src="{{ $webConfig->app_logo != null ? asset('storage/web_config/' . $webConfig->app_logo) : 'https://placehold.jp/150x150.png' }}"
+                                    alt="">
+                                <div class="col-span-5">
+                                    <x-input-file id="app_logo" name="app_logo" label="Gambar App Logo"
+                                        value="{{ $webConfig->app_logo }}" help="PNG, SVG. Maksimal 2MB" />
+                                </div>
+                            </div>
                             <h2 class="text-lg font-bold mt-2 md:mt-0 mb-2">Konfigurasi Halaman Who</h2>
                             <x-input label="Judul Halaman Who" name="hero_who_copywriting" :value="$webConfig->hero_who_copywriting" />
                             <div class="grid grid-cols-7 gap-4 mb-1">
