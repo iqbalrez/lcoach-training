@@ -8,10 +8,10 @@
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Explore</p>
             <x-nav-link class="border-transparent" href="/">Home</x-nav-link>
-            <x-nav-link class="border-transparent" href={{route('user.landing.who')}}>Who we are</x-nav-link>
-            <x-nav-link class="border-transparent" href={{route('user.landing.what.index')}}>What we do</x-nav-link>
-            <x-nav-link class="border-transparent" href={{route('user.landing.case-studies.index')}}>Case studies</x-nav-link>
-            <x-nav-link class="border-transparent" href={{route('user.landing.contact')}}>Contact us</x-nav-link>
+            <x-nav-link class="border-transparent" href="/who">Who we are</x-nav-link>
+            <x-nav-link class="border-transparent" href="/what">What we do</x-nav-link>
+            <x-nav-link class="border-transparent" href="/case-studies">Case studies</x-nav-link>
+            <x-nav-link class="border-transparent" href="/contaact">Contact us</x-nav-link>
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Follow us</p>
