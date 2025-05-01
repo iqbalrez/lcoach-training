@@ -87,7 +87,7 @@
                     {{-- Konten --}}
                     <div class="p-4 md:p-6 flex flex-col justify-center w-2/3 md:w-full bg-white z-20 text-left">
                         <h3 class="text-lg font-bold text-blue-950">{{ $value->title }}</h3>
-                        <p class="text-gray-800">{{ $value->description }}</p>
+                        <p class="text-gray-800 hidden md:block">{{ $value->description }}</p>
                     </div>
                 </div>
             @endforeach

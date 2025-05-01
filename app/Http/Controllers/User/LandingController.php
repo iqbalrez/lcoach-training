@@ -64,7 +64,7 @@ class LandingController extends Controller
             ]);
         
         // Kirim email notifikasi
-        Mail::to("iqbalrr02@gmail.com")->send(new MeetingRequestNotification($request->name, $request->email, $request->company, $request->date, $request->time));
+        Mail::to("lincolnciptasolusi@gmail.com")->send(new MeetingRequestNotification($request->name, $request->email, $request->company, $request->date, $request->time));
 
         $this->meetingRequest->store($request->all());
             return redirect()->route('user.landing.index')->with('success', 'Meeting request sent');
