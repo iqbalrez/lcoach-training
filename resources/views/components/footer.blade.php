@@ -15,8 +15,8 @@
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Follow us</p>
-            <x-nav-link class="border-transparent" href="/">LinkedIn</x-nav-link>
-            <x-nav-link class="border-transparent" href="/about">Facebook</x-nav-link>
+            <x-nav-link class="border-transparent" href="https://www.linkedin.com/company/lcoach-executive-business%C2%A0coach/">LinkedIn</x-nav-link>
+            <x-nav-link class="border-transparent" href="https://instagram.com/lcoach_training">Instagram</x-nav-link>
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Contact us</p>
