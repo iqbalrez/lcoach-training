@@ -20,8 +20,8 @@
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Contact us</p>
-            <x-nav-link class="border-transparent" href="/">+62 817 9909 998</x-nav-link>
-            <x-nav-link class="border-transparent" href="/">lincolnciptasolusi@gmail.com</x-nav-link>
+            <x-nav-link class="border-transparent" href="https://wa.me/628179909998">+62 817 9909 998</x-nav-link>
+            <x-nav-link class="border-transparent" href="mailto:lincolnciptasolusi@gmail.com">lincolnciptasolusi@gmail.com</x-nav-link>
         </div>
     </div> 
 </nav>
