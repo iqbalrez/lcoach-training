@@ -111,7 +111,7 @@
                     const today = new Date();
                     if (year === today.getFullYear() && month === today.getMonth() && date === today.getDate()) {
                         day.className =
-                            "hover:bg-amber-500 text-base w-full h-full flex items-center justify-center text-white bg-blue-950 rounded-full";
+                            "hover:bg-amber-500 text-xs p-1 w-full h-full flex items-center justify-center text-white bg-blue-950 rounded-full";
                     }
 
                     cellText.appendChild(day);
