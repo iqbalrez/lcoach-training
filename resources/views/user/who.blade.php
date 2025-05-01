@@ -69,7 +69,7 @@
     </section>
 
     {{-- Values --}}
-    <section class="flex justify-center bg-gray-50 px-6 md:px-0 py-12">
+    <section class="justify-center bg-gray-50 px-6 md:px-0 py-12 hidden md:flex">
         <div class="mx-auto md:w-5xl text-center gap-2">
             <h2 class="text-3xl font-bold text-blue-950 mb-6">Our values</h2>
 
@@ -79,7 +79,7 @@
                         {{-- Gambar --}}
                         <div class="relative col-span-2 md:w-full h-auto md:h-48">
                             <div class="absolute inset-0 bg-gradient-to-tl from-blue-950/70 z-10"></div>
-                            <img class="h-full object-cover bg-gray-100"
+                            <img class="h-full w-full object-cover bg-gray-100"
                                 src="{{ $value->image != null ? asset('storage/values/' . $value->image) : 'https://placehold.jp/1920x1080.png' }}"
                                 alt="Image of {{ $value->title }}">
                         </div>
