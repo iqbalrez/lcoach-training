@@ -60,6 +60,10 @@
             <p>has requested a meeting with you at <br>
             <span style="font-size: 16px;"> {{ date('d F Y', strtotime($date)) }} - {{ $time }}</span></p>
     </div>
+
+    <div class="content" style="margin-top: 20px;">
+        <a href="{{ route('admin.meeting-request.index') }}" style="text-decoration: none; background-color: #333; color: white; padding: 10px 20px; border-radius: 5px;">Check Meeting Request</a>
+    </div>
     <div class="footer">
         <p>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
     </div>

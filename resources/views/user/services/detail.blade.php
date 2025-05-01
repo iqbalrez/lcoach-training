@@ -12,7 +12,7 @@
                 <div class="flex flex-col justify-center">
                     <img class="md:w-3/4 mx-auto aspect-video object-cover rounded-2xl" src="{{ $service->image != null ? asset('storage/services/' . $service->image) : 'https://placehold.jp/1920x1080.png'}}" alt="Image of who we are">
                     
-                    <div class="-translate-y-24 mx-auto px-8 pt-6 w-5/6 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3">
+                    <div class="-translate-y-24 mx-auto px-8 pt-6 w-11/12 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3">
                         <h2 class="text-2xl font-bold text-blue-950">{{ $service->description }}</h2>
                         <div class="leading-relaxed">
                         {!! $service->content !!}

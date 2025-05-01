@@ -69,29 +69,32 @@
     </section>
 
     {{-- Values --}}
-    <section class="flex justify-center bg-gray-50 px-6 md:px-0 py-12">
-        <div class="mx-auto md:w-5xl justify-center text-center gap-2">
-            <h2 class="text-3xl text-center font-bold text-blue-950 mb-6">Our values</h2>
-            <div
-                class="grid grid-cols-1 md:grid-cols-3 gap-6 w-screen px-6 lg:px-0 md:w-3xl lg:w-4xl xl:w-5xl mx-auto items-center">
-                @foreach ($values as $value)
-                    {{-- Card --}}
-                    <div
-                        class="flex flex-row h-full md:flex-col rounded-2xl overflow-hidden text-center bg-white drop-shadow-md w-full justify-center">
-                        <div class="w-2/5 md:w-full">
-                            <div class="absolute inset-0 bg-gradient-to-tl from-blue-950/70"></div>
-                            <img class="w-2/5 md:w-full aspect-square md:aspect-[4/3] object-cover bg-gray-100"
-                                src="{{ $value->image != null ? asset('storage/values/' . $value->image) : 'https://placehold.jp/1920x1080.png' }}"
-                                alt="Image of {{ $value->title }}">
-                        </div>
-                        <div class="p-6 flex flex-col gap-2 h-full bg-white z-10">
-                            <h3 class="text-center text-lg font-bold text-blue-950">{{ $value->title }}</h3>
-                            <p class="text-gray-800">{{ $value->description }}</p>
-                        </div>
+<section class="flex justify-center bg-gray-50 px-6 md:px-0 py-12">
+    <div class="mx-auto md:w-5xl text-center gap-2">
+        <h2 class="text-3xl font-bold text-blue-950 mb-6">Our values</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-screen px-6 md:px-0 md:w-3xl lg:w-4xl xl:w-5xl mx-auto items-stretch">
+            @foreach ($values as $value)
+                <div class="flex flex-row md:flex-col rounded-2xl overflow-hidden text-center bg-white drop-shadow-md w-full h-full">
+                    {{-- Gambar --}}
+                    <div class="relative w-1/3 md:w-full h-auto md:h-48">
+                        <div class="absolute inset-0 bg-gradient-to-tl from-blue-950/70 z-10"></div>
+                        <img class="h-full w-full object-cover bg-gray-100"
+                             src="{{ $value->image != null ? asset('storage/values/' . $value->image) : 'https://placehold.jp/1920x1080.png' }}"
+                             alt="Image of {{ $value->title }}">
                     </div>
-                @endforeach
-            </div>
-    </section>
+
+                    {{-- Konten --}}
+                    <div class="p-4 md:p-6 flex flex-col justify-center w-2/3 md:w-full bg-white z-20 text-left">
+                        <h3 class="text-lg font-bold text-blue-950">{{ $value->title }}</h3>
+                        <p class="text-gray-800">{{ $value->description }}</p>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+
 
     {{-- CTA --}}
     <section class="flex-col justify-center bg-white px-6 md:px-0 py-12">

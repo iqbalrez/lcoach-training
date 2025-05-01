@@ -12,7 +12,7 @@
                 <div class="flex flex-col justify-center">
                     <img class="md:w-3/4 mx-auto aspect-video object-cover rounded-2xl" src="{{ $caseStudy->image != null ? asset('storage/case_studies/' . $caseStudy->image) : 'https://placehold.jp/1920x1080.png'}}" alt="Image of who we are">
                     
-                    <div class="-translate-y-24 mx-auto px-8 py-6 w-5/6 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="-translate-y-24 mx-auto px-8 py-6 w-11/12 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3 shadow-md">
                         {{-- <h2 class="text-2xl font-bold text-blue-950">{{ $caseStudy->description }}</h2> --}}
                         <div class="ck-content leading-relaxed text-justify">
                         {!! $caseStudy->content !!}
