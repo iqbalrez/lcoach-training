@@ -1,5 +1,5 @@
 <div class="flex items-center justify-center">
-    <div class="calendar-container shadow-lg w-full overflow-x-hidden relative">
+    <div class="calendar-container w-full overflow-x-hidden relative">
         <div id="calendar" class="absolute translate-x-0 transition-transform ease-in-out delay-150 duration-300 md:p-8 p-5 bg-white rounded-t w-full h-full">
             <div class="flex items-center justify-between">
                 <span id="month-year" class="text-base font-bold text-gray-800"></span>

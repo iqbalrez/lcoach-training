@@ -21,7 +21,7 @@
                         alt="Image of who we are"
                     >
 
-                    <div class="-translate-y-10 md:-translate-y-24 mx-auto px-8 py-6 w-11/12 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3 shadow-md">
+                    <div class="-translate-y-10 md:-translate-y-24 mx-2 md:mx-auto px-8 pt-6 md:w-2/3 bg-white rounded-2xl flex flex-col gap-3 shadow-md">
                         <div class="ck-content leading-relaxed text-justify">
                             {!! $caseStudy->content !!}
                         </div>
