@@ -11,19 +11,19 @@
             <x-nav-link class="border-transparent" href="/who">Who we are</x-nav-link>
             <x-nav-link class="border-transparent" href="/what">What we do</x-nav-link>
             <x-nav-link class="border-transparent" href="/case-studies">Case studies</x-nav-link>
-            <x-nav-link class="border-transparent" href="/contaact">Contact us</x-nav-link>
+            <x-nav-link class="border-transparent" href="/contact">Contact us</x-nav-link>
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Follow us</p>
-            <x-nav-link class="border-transparent" href="https://www.linkedin.com/company/lcoach-executive-business%C2%A0coach/">LinkedIn</x-nav-link>
+            <x-nav-link class="border-transparent"
+                href="https://www.linkedin.com/company/lcoach-executive-business%C2%A0coach/">LinkedIn</x-nav-link>
             <x-nav-link class="border-transparent" href="https://instagram.com/lcoach_training">Instagram</x-nav-link>
         </div>
         <div class="flex flex-col justify-start mb-4">
             <p class="text-md font-bold px-1 text-blue-950">Contact us</p>
             <x-nav-link class="border-transparent" href="https://wa.me/628179909998">+62 817 9909 998</x-nav-link>
-            <x-nav-link class="border-transparent" href="mailto:lincolnciptasolusi@gmail.com">lincolnciptasolusi@gmail.com</x-nav-link>
+            <x-nav-link class="border-transparent"
+                href="mailto:lincolnciptasolusi@gmail.com">lincolnciptasolusi@gmail.com</x-nav-link>
         </div>
-    </div> 
+    </div>
 </nav>
-
-
