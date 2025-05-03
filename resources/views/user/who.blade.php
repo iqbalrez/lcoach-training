@@ -15,7 +15,7 @@
                         alt="Image of who we are">
 
                     <div
-                        class="-translate-y-16 md:-translate-y-24 mx-4 px-8 pt-6 md:mx-44 bg-white rounded-2xl flex flex-col gap-3">
+                        class="-translate-y-16 md:-translate-y-24 mx-4 px-8 pt-6 md:mx-44 max-w-5xl bg-white rounded-2xl flex flex-col gap-3">
                         <h2 class="text-2xl font-bold text-blue-950">{{ $webConfig->subheading_who }}</h2>
                         <div class="leading-relaxed">
                             <div class="text-justify">{!! $webConfig->who_copywriting !!}</div>
